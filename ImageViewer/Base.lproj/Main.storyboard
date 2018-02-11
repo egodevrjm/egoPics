@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UxK-aF-tSX">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--egoPics-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="PhotoListController" customModule="egoPics" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="98o-9X-ew5">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <subviews>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5EB-9v-a1f">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="539"/>
+                                        <color key="backgroundColor" name="Whisper"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="20" id="yIM-kf-ejI">
+                                            <size key="itemSize" width="110" height="110"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="20" minY="20" maxX="20" maxY="20"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCell" id="p5G-Bx-pF7" customClass="PhotoCell" customModule="egoPics" customModuleProvider="target">
+                                                <rect key="frame" x="20" y="20" width="110" height="110"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                                    <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MVa-zC-hyT">
+                                                            <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                </view>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="MVa-zC-hyT" secondAttribute="bottom" id="3Mq-ya-fTU"/>
+                                                    <constraint firstItem="MVa-zC-hyT" firstAttribute="top" secondItem="p5G-Bx-pF7" secondAttribute="top" id="4bY-gZ-wae"/>
+                                                    <constraint firstAttribute="trailing" secondItem="MVa-zC-hyT" secondAttribute="trailing" id="PxU-0l-H0U"/>
+                                                    <constraint firstItem="MVa-zC-hyT" firstAttribute="leading" secondItem="p5G-Bx-pF7" secondAttribute="leading" id="tXL-ve-7qC"/>
+                                                </constraints>
+                                                <connections>
+                                                    <outlet property="photoView" destination="MVa-zC-hyT" id="pqr-aS-vV9"/>
+                                                    <segue destination="gs5-sn-eeO" kind="show" identifier="showPhoto" id="FgT-Bz-aUO"/>
+                                                </connections>
+                                            </collectionViewCell>
+                                        </cells>
+                                    </collectionView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nhM-Av-76h">
+                                        <rect key="frame" x="0.0" y="539" width="375" height="64"/>
+                                        <color key="backgroundColor" name="Cloud Burst"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="64" id="Wb6-P5-Rfb"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="smSelfieIcon"/>
+                                        <connections>
+                                            <action selector="launchCamera:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dMk-3z-zma"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="nhM-Av-76h" firstAttribute="leading" secondItem="98o-9X-ew5" secondAttribute="leading" id="2gs-FZ-1Zj"/>
+                                    <constraint firstAttribute="trailing" secondItem="5EB-9v-a1f" secondAttribute="trailing" id="KVB-kP-xYq"/>
+                                    <constraint firstAttribute="bottom" secondItem="nhM-Av-76h" secondAttribute="bottom" id="b9e-2f-TPP"/>
+                                    <constraint firstItem="5EB-9v-a1f" firstAttribute="leading" secondItem="98o-9X-ew5" secondAttribute="leading" id="ccx-44-Xo7"/>
+                                    <constraint firstItem="nhM-Av-76h" firstAttribute="top" secondItem="5EB-9v-a1f" secondAttribute="bottom" id="gKJ-dr-EEc"/>
+                                    <constraint firstItem="5EB-9v-a1f" firstAttribute="top" secondItem="98o-9X-ew5" secondAttribute="top" id="sFq-eZ-rFB"/>
+                                    <constraint firstAttribute="trailing" secondItem="nhM-Av-76h" secondAttribute="trailing" id="zZa-U0-2KI"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" name="Whisper"/>
+                        <constraints>
+                            <constraint firstItem="98o-9X-ew5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="EAv-bR-SE1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="98o-9X-ew5" secondAttribute="bottom" id="Lg4-o0-vtV"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="98o-9X-ew5" secondAttribute="trailing" id="Qo5-12-rz8"/>
+                            <constraint firstItem="98o-9X-ew5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="fzc-cN-fTV"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="egoPics" id="dAH-Q7-dV6"/>
+                    <connections>
+                        <outlet property="photosCollectionView" destination="5EB-9v-a1f" id="Mwo-Hc-kJ1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="476" y="132.68365817091455"/>
+        </scene>
+        <!--Photo Filter Controller-->
+        <scene sceneID="rIh-2u-Vdc">
+            <objects>
+                <viewController storyboardIdentifier="PhotoFilterController" id="Zab-Z9-D0t" customClass="PhotoFilterController" customModule="egoPics" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BED-hi-q9B">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="H2H-d4-MOf">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ljJ-Wf-nUg">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="447"/>
+                                    </imageView>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Bv4-IL-Cpm">
+                                        <rect key="frame" x="0.0" y="447" width="375" height="200"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="200" id="bj2-Sg-CMz"/>
+                                        </constraints>
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="r2k-mU-4UD">
+                                            <size key="itemSize" width="100" height="100"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FilteredImageCell" id="3iS-z1-X2s" customClass="FilteredImageCell" customModule="egoPics" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="50" width="100" height="100"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gMR-Sa-eXX">
+                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                </view>
+                                                <constraints>
+                                                    <constraint firstItem="gMR-Sa-eXX" firstAttribute="leading" secondItem="3iS-z1-X2s" secondAttribute="leading" id="BKp-lP-nyB"/>
+                                                    <constraint firstItem="gMR-Sa-eXX" firstAttribute="top" secondItem="3iS-z1-X2s" secondAttribute="top" id="Peb-1s-mhe"/>
+                                                    <constraint firstAttribute="trailing" secondItem="gMR-Sa-eXX" secondAttribute="trailing" id="QIX-Ep-xhN"/>
+                                                    <constraint firstAttribute="bottom" secondItem="gMR-Sa-eXX" secondAttribute="bottom" id="gJW-ly-r3R"/>
+                                                </constraints>
+                                                <connections>
+                                                    <outlet property="imageView" destination="gMR-Sa-eXX" id="1Qk-vS-nIT"/>
+                                                </connections>
+                                            </collectionViewCell>
+                                        </cells>
+                                    </collectionView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" name="Whisper"/>
+                        <constraints>
+                            <constraint firstItem="H2H-d4-MOf" firstAttribute="leading" secondItem="44e-28-awO" secondAttribute="leading" id="XwN-SR-s2e"/>
+                            <constraint firstItem="44e-28-awO" firstAttribute="bottom" secondItem="H2H-d4-MOf" secondAttribute="bottom" id="bPA-Q7-2PK"/>
+                            <constraint firstItem="H2H-d4-MOf" firstAttribute="top" secondItem="44e-28-awO" secondAttribute="top" id="iBo-ap-k2r"/>
+                            <constraint firstItem="44e-28-awO" firstAttribute="trailing" secondItem="H2H-d4-MOf" secondAttribute="trailing" id="t4x-Er-tYZ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="44e-28-awO"/>
+                    </view>
+                    <connections>
+                        <outlet property="filtersCollectionView" destination="Bv4-IL-Cpm" id="Cap-JO-bHP"/>
+                        <outlet property="photoImageView" destination="ljJ-Wf-nUg" id="ig9-bn-Jej"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vx9-db-OmQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="476" y="842"/>
+        </scene>
+        <!--Photo Page Controller-->
+        <scene sceneID="Eb5-aU-OqZ">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="gs5-sn-eeO" customClass="PhotoPageController" customModule="egoPics" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Eut-4I-vA1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1428" y="133"/>
+        </scene>
+        <!--Photo Viewer Controller-->
+        <scene sceneID="TUN-wn-2xq">
+            <objects>
+                <viewController storyboardIdentifier="PhotoViewerController" id="nSW-BL-b62" customClass="PhotoViewerController" customModule="egoPics" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HKU-rz-IaG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zCo-6e-wo7">
+                                <rect key="frame" x="0.0" y="192.5" width="375" height="281"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="zCo-6e-wo7" secondAttribute="height" multiplier="4:3" id="CKH-1T-57S"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="epo-3u-pR0" appends="YES" id="l6t-ej-VCP"/>
+                                </connections>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" name="Whisper"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="zCo-6e-wo7" secondAttribute="trailing" id="8cL-Iz-02X"/>
+                            <constraint firstItem="zCo-6e-wo7" firstAttribute="centerY" secondItem="HKU-rz-IaG" secondAttribute="centerY" id="LZS-dx-RNT"/>
+                            <constraint firstItem="zCo-6e-wo7" firstAttribute="centerX" secondItem="HKU-rz-IaG" secondAttribute="centerX" id="Tho-IX-LZg"/>
+                            <constraint firstItem="zCo-6e-wo7" firstAttribute="leading" secondItem="HKU-rz-IaG" secondAttribute="leading" id="ecH-sP-qPm"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="H60-Mk-vjE"/>
+                    </view>
+                    <connections>
+                        <outlet property="photoImageView" destination="zCo-6e-wo7" id="iLY-m2-f48"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rHj-Jo-U2m" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="epo-3u-pR0">
+                    <connections>
+                        <action selector="launchPhotoZoomController:" destination="nSW-BL-b62" id="xo4-qR-zdw"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="2249" y="133"/>
+        </scene>
+        <!--Photo Zoom Controller-->
+        <scene sceneID="ZmZ-1g-JeL">
+            <objects>
+                <viewController storyboardIdentifier="PhotoZoomController" id="EtR-ea-oqR" customClass="PhotoZoomController" customModule="egoPics" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="him-dY-P2J">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KyL-gV-Usi">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RaG-b4-tHQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="RaG-b4-tHQ" firstAttribute="top" secondItem="KyL-gV-Usi" secondAttribute="top" id="Fhp-UW-e58"/>
+                                    <constraint firstItem="RaG-b4-tHQ" firstAttribute="centerY" secondItem="KyL-gV-Usi" secondAttribute="centerY" placeholder="YES" id="IaJ-nv-D6m"/>
+                                    <constraint firstItem="RaG-b4-tHQ" firstAttribute="centerX" secondItem="KyL-gV-Usi" secondAttribute="centerX" placeholder="YES" id="Xbx-35-gyd"/>
+                                    <constraint firstItem="RaG-b4-tHQ" firstAttribute="leading" secondItem="KyL-gV-Usi" secondAttribute="leading" id="bPp-FV-UTm"/>
+                                    <constraint firstAttribute="trailing" secondItem="RaG-b4-tHQ" secondAttribute="trailing" id="hLJ-6C-Jpi"/>
+                                    <constraint firstAttribute="bottom" secondItem="RaG-b4-tHQ" secondAttribute="bottom" id="l6m-7F-ui2"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="EtR-ea-oqR" id="N1g-n7-SGV"/>
+                                </connections>
+                            </scrollView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="KyL-gV-Usi" firstAttribute="bottom" secondItem="him-dY-P2J" secondAttribute="bottom" id="FOr-1I-OGS"/>
+                            <constraint firstItem="KyL-gV-Usi" firstAttribute="leading" secondItem="him-dY-P2J" secondAttribute="leading" id="MdO-zA-BJk"/>
+                            <constraint firstItem="KyL-gV-Usi" firstAttribute="top" secondItem="him-dY-P2J" secondAttribute="top" id="nZm-9s-h4m"/>
+                            <constraint firstItem="KyL-gV-Usi" firstAttribute="trailing" secondItem="him-dY-P2J" secondAttribute="trailing" id="pNI-7D-9dr"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="NrI-b2-H27"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageViewBottomConstraint" destination="l6m-7F-ui2" id="gEL-MG-Ita"/>
+                        <outlet property="imageViewLeadingConstraing" destination="bPp-FV-UTm" id="0Tx-P5-gOT"/>
+                        <outlet property="imageViewTopConstraint" destination="Fhp-UW-e58" id="JW1-74-P7g"/>
+                        <outlet property="imageViewTrailingConstraint" destination="hLJ-6C-Jpi" id="1Vd-va-Y3A"/>
+                        <outlet property="photoImageView" destination="RaG-b4-tHQ" id="igZ-d1-Q2u"/>
+                        <outlet property="scrollView" destination="KyL-gV-Usi" id="9Bg-c2-D7Z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PXP-O7-My4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3074.4000000000001" y="132.68365817091455"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="CWY-Rs-SNv">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UxK-aF-tSX" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="soL-rs-yrT">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" name="Cloud Burst"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" name="Cloud Burst"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="iQe-eQ-HwF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YFP-F2-RzX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-527" y="133"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="smSelfieIcon" width="50" height="40"/>
+        <namedColor name="Cloud Burst">
+            <color red="0.10999999940395355" green="0.16899999976158142" blue="0.32499998807907104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Whisper">
+            <color red="0.96100002527236938" green="0.9649999737739563" blue="0.98000001907348633" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Whisper">
+            <color red="0.96100002527236938" green="0.9649999737739563" blue="0.98000001907348633" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
