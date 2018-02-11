@@ -13,11 +13,13 @@ class PhotoFilterController: UIViewController {
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var filtersCollectionView: UICollectionView!
     
-    private lazy var filteredImages: [UIImage] = {
+    private lazy var filteredImages: [CIImage] = {
         guard let image = self.photo else { return [] }
         let filteredImageBuilder = FilteredImageBuilder(image: image)
         return filteredImageBuilder.imageWithDefaultFilters()
     }()
+    
+    let eaglContext = EAGLContext(api: .openGLES3)
     
     var photo: UIImage?
     
@@ -41,9 +43,23 @@ extension PhotoFilterController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FilteredImageCell.reuseIdentifier, for: indexPath) as! FilteredImageCell
-        cell.imageView.image = filteredImages[indexPath.row]
+        let image = filteredImages[indexPath.row]
+        
+        cell.eaglContext = eaglContext
+        cell.image = image
+        
         return cell
     }
-    
-    
 }
+
+
+
+
+
+
+
+
+
+
+
+
