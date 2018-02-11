@@ -36,10 +36,13 @@ class PhotoPickerManager: NSObject {
     
     private func configure() {
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            imagePickerController.sourceType = .camera
-            imagePickerController.cameraDevice = .front
-            imagePickerController.allowsEditing = false
-            imagePickerController.cameraCaptureMode = .photo
+            imagePickerController.sourceType = .photoLibrary
+            imagePickerController.navigationBar.tintColor = UIColor.cloudBurst
+            
+//            imagePickerController.sourceType = .camera
+//            imagePickerController.cameraDevice = .front
+//            imagePickerController.allowsEditing = false
+//            imagePickerController.cameraCaptureMode = .photo
         } else {
             imagePickerController.sourceType = .photoLibrary
         }

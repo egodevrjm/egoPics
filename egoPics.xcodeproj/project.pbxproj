@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		700883E520308381004F10E4 /* UIImage+Resizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700883E420308381004F10E4 /* UIImage+Resizing.swift */; };
+		700883E72030850D004F10E4 /* ImageFiltrationOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700883E62030850D004F10E4 /* ImageFiltrationOperation.swift */; };
+		700883E92030909A004F10E4 /* PhotoMetadataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700883E82030909A004F10E4 /* PhotoMetadataController.swift */; };
 		7046A8B620305880005100B0 /* PhotoFilterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7046A8B520305880005100B0 /* PhotoFilterController.swift */; };
 		7046A8BF20305EE9005100B0 /* PhotoFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7046A8BE20305EE9005100B0 /* PhotoFilters.swift */; };
 		7046A8C120306573005100B0 /* FilteredImageBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7046A8C020306573005100B0 /* FilteredImageBuilder.swift */; };
@@ -30,6 +33,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		700883E420308381004F10E4 /* UIImage+Resizing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Resizing.swift"; sourceTree = "<group>"; };
+		700883E62030850D004F10E4 /* ImageFiltrationOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFiltrationOperation.swift; sourceTree = "<group>"; };
+		700883E82030909A004F10E4 /* PhotoMetadataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoMetadataController.swift; sourceTree = "<group>"; };
+		700883EA2030A2BB004F10E4 /* ImageViewer 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ImageViewer 2.xcdatamodel"; sourceTree = "<group>"; };
 		7046A8B520305880005100B0 /* PhotoFilterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoFilterController.swift; sourceTree = "<group>"; };
 		7046A8BE20305EE9005100B0 /* PhotoFilters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoFilters.swift; sourceTree = "<group>"; };
 		7046A8C020306573005100B0 /* FilteredImageBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredImageBuilder.swift; sourceTree = "<group>"; };
@@ -73,6 +80,8 @@
 				70AD3987202FA19B00050AC2 /* PhotoPickerManager.swift */,
 				7046A8BE20305EE9005100B0 /* PhotoFilters.swift */,
 				7046A8C020306573005100B0 /* FilteredImageBuilder.swift */,
+				700883E420308381004F10E4 /* UIImage+Resizing.swift */,
+				700883E62030850D004F10E4 /* ImageFiltrationOperation.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -106,6 +115,7 @@
 				70AD3991202FBEF000050AC2 /* PhotoViewerController.swift */,
 				70AD3993202FC95800050AC2 /* PhotoZoomController.swift */,
 				7046A8B520305880005100B0 /* PhotoFilterController.swift */,
+				700883E82030909A004F10E4 /* PhotoMetadataController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -213,12 +223,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				700883E72030850D004F10E4 /* ImageFiltrationOperation.swift in Sources */,
 				7046A8B620305880005100B0 /* PhotoFilterController.swift in Sources */,
 				70AD3988202FA19B00050AC2 /* PhotoPickerManager.swift in Sources */,
 				70AD3990202FBDDC00050AC2 /* PhotoPageController.swift in Sources */,
 				7046A8C320306794005100B0 /* FilteredImageCell.swift in Sources */,
 				70AD3992202FBEF000050AC2 /* PhotoViewerController.swift in Sources */,
 				97C520931F7B3E31005642A3 /* CoreDataStack.swift in Sources */,
+				700883E92030909A004F10E4 /* PhotoMetadataController.swift in Sources */,
+				700883E520308381004F10E4 /* UIImage+Resizing.swift in Sources */,
 				97C5209B1F7B4020005642A3 /* ImageViewer.xcdatamodeld in Sources */,
 				97C520981F7B3FBD005642A3 /* PhotoCell.swift in Sources */,
 				70AD3994202FC95800050AC2 /* PhotoZoomController.swift in Sources */,
@@ -419,9 +432,10 @@
 		97C520991F7B4020005642A3 /* ImageViewer.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				700883EA2030A2BB004F10E4 /* ImageViewer 2.xcdatamodel */,
 				97C5209A1F7B4020005642A3 /* ImageViewer.xcdatamodel */,
 			);
-			currentVersion = 97C5209A1F7B4020005642A3 /* ImageViewer.xcdatamodel */;
+			currentVersion = 700883EA2030A2BB004F10E4 /* ImageViewer 2.xcdatamodel */;
 			path = ImageViewer.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

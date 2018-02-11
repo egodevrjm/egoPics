@@ -6,6 +6,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -206,6 +207,95 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2249" y="133"/>
+        </scene>
+        <!--Photo Metadata Controller-->
+        <scene sceneID="CLa-RE-eUH">
+            <objects>
+                <tableViewController storyboardIdentifier="PhotoMetadataController" id="jcb-dU-Vps" customClass="PhotoMetadataController" customModule="egoPics" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="ahX-4U-uP5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" name="Whisper"/>
+                        <sections>
+                            <tableViewSection id="ZY5-Fs-SIz">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="120" id="xQd-St-AKm">
+                                        <rect key="frame" x="0.0" y="35" width="375" height="120"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xQd-St-AKm" id="0f9-iC-cNm">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="119.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="N3m-pM-3PV">
+                                                    <rect key="frame" x="16" y="8" width="103.5" height="103.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="N3m-pM-3PV" secondAttribute="height" multiplier="1:1" id="noN-d6-KJB"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" placeholder="Enter a caption" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K6G-35-Z5y">
+                                                    <rect key="frame" x="127.5" y="8" width="239.5" height="103.5"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="K6G-35-Z5y" firstAttribute="bottom" secondItem="N3m-pM-3PV" secondAttribute="bottom" id="0Xz-J2-rsn"/>
+                                                <constraint firstAttribute="trailing" secondItem="K6G-35-Z5y" secondAttribute="trailing" constant="8" id="0Zw-6c-mze"/>
+                                                <constraint firstItem="N3m-pM-3PV" firstAttribute="top" secondItem="0f9-iC-cNm" secondAttribute="top" constant="8" id="1uW-I3-Ibu"/>
+                                                <constraint firstItem="K6G-35-Z5y" firstAttribute="top" secondItem="N3m-pM-3PV" secondAttribute="top" id="L4Y-U1-v8I"/>
+                                                <constraint firstItem="N3m-pM-3PV" firstAttribute="leading" secondItem="0f9-iC-cNm" secondAttribute="leading" constant="16" id="MDd-y6-fHG"/>
+                                                <constraint firstItem="K6G-35-Z5y" firstAttribute="leading" secondItem="N3m-pM-3PV" secondAttribute="trailing" constant="8" id="XHX-0b-xlY"/>
+                                                <constraint firstAttribute="bottom" secondItem="N3m-pM-3PV" secondAttribute="bottom" constant="8" id="rUy-X9-Zg0"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="yzq-u6-dOR">
+                                        <rect key="frame" x="0.0" y="155" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yzq-u6-dOR" id="2jo-qb-KnB">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Beach, Sand, Sun..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dQM-L4-Pos">
+                                                    <rect key="frame" x="60.5" y="12.5" width="306.5" height="17"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tags" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="06a-yg-6pO">
+                                                    <rect key="frame" x="16" y="11" width="36.5" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="dQM-L4-Pos" secondAttribute="trailing" constant="8" id="4BV-O2-NxB"/>
+                                                <constraint firstItem="06a-yg-6pO" firstAttribute="centerY" secondItem="2jo-qb-KnB" secondAttribute="centerY" id="To4-yb-lFM"/>
+                                                <constraint firstItem="06a-yg-6pO" firstAttribute="leading" secondItem="2jo-qb-KnB" secondAttribute="leadingMargin" id="bHa-K6-0Dw"/>
+                                                <constraint firstItem="dQM-L4-Pos" firstAttribute="leading" secondItem="06a-yg-6pO" secondAttribute="trailing" constant="8" id="ugM-bA-Wuh"/>
+                                                <constraint firstItem="dQM-L4-Pos" firstAttribute="centerY" secondItem="2jo-qb-KnB" secondAttribute="centerY" id="wsZ-TP-8mm"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="jcb-dU-Vps" id="GeJ-Rf-LO3"/>
+                            <outlet property="delegate" destination="jcb-dU-Vps" id="GGC-FQ-sks"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="captionTextField" destination="K6G-35-Z5y" id="C3g-dV-sVI"/>
+                        <outlet property="photoImageView" destination="N3m-pM-3PV" id="ivZ-FV-enA"/>
+                        <outlet property="tagsTextField" destination="dQM-L4-Pos" id="x8K-U7-YvM"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="02D-NK-xMy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1428" y="842"/>
         </scene>
         <!--Photo Zoom Controller-->
         <scene sceneID="ZmZ-1g-JeL">

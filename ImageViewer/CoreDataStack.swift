@@ -22,6 +22,7 @@ class CoreDataStack {
             if let error = error as NSError? {
                 fatalError("Unresolved error: \(error), \(error.userInfo)")
             }
+            
         }
         
         return container

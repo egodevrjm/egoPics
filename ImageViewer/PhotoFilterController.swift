@@ -20,14 +20,55 @@ class PhotoFilterController: UIViewController {
     }()
     
     let eaglContext = EAGLContext(api: .openGLES3)
-    
+    let queue = OperationQueue()
     var photo: UIImage?
+    
+    lazy var displayPhoto: UIImage? = {
+        guard let image = photo else { return nil }
+        let imageWidth = image.size.width
+        let imageHeight = image.size.height
+        let screenWidth = UIScreen.main.bounds.width
+        
+        let scaledRatio = screenWidth / imageWidth
+        let scaledHeight = scaledRatio * imageHeight
+        let size = CGSize(width: screenWidth, height: scaledHeight)
+        return image.resized(to: size)
+    }()
+    
+    var selectedFilter: CIFilter?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        photoImageView.image = photo
+        photoImageView.image = displayPhoto
         filtersCollectionView.dataSource = self
+        filtersCollectionView.delegate = self
+        
+        setupNavigation()
+    }
+    
+    @objc func dismissPhotoFilterController() {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func launchPhotoMetadaController() {
+        guard let photoMetadataController = storyboard?.instantiateViewController(withIdentifier: "PhotoMetadataController") as? PhotoMetadataController else { return }
+        
+        photoMetadataController.displayPhoto = photoImageView.image
+        photoMetadataController.photo = self.photo
+        photoMetadataController.filter = selectedFilter
+        
+        navigationController?.pushViewController(photoMetadataController, animated: true)
+    }
+    
+    func setupNavigation() {
+        let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(PhotoFilterController.dismissPhotoFilterController))
+        navigationItem.leftBarButtonItem = cancelButton
+        
+        let nextButton = UIBarButtonItem(title: "Next", style: .done, target: self, action: #selector(PhotoFilterController.launchPhotoMetadaController))
+        navigationItem.rightBarButtonItem = nextButton
+        
+        navigationController?.navigationBar.tintColor = UIColor.cloudBurst
     }
 }
 
@@ -52,7 +93,21 @@ extension PhotoFilterController: UICollectionViewDataSource {
     }
 }
 
-
+extension PhotoFilterController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let filter = PhotoFilter.defaultFilters[indexPath.row]
+        self.selectedFilter = filter
+        let image = FiltrationImage(image: displayPhoto!)
+        let operation = ImageFiltrationOperation(image: image, filter: filter)
+        
+        operation.completionBlock = {
+            DispatchQueue.main.async {
+                self.photoImageView.image = operation.filtrationImage.image
+            }
+        }
+        queue.addOperation(operation)
+    }
+}
 
 
 

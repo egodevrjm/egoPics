@@ -4,6 +4,10 @@ import UIKit
 British Flat UI colour pallett from FlatUIColors.com
 **/
 
+enum NamedColors: String {
+    case cloudBurst = "Cloud Burst"
+}
+
 extension UIColor {
 
 	/**
